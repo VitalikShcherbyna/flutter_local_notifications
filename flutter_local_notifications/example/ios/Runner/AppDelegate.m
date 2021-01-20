@@ -12,9 +12,6 @@
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"Notification"];
     }
-    if(@available(iOS 10.0, *)) {
-        [UNUserNotificationCenter currentNotificationCenter].delegate = (id<UNUserNotificationCenterDelegate>) self;
-    }
     
     FlutterViewController* controller = (FlutterViewController*)self.window.rootViewController;
 
