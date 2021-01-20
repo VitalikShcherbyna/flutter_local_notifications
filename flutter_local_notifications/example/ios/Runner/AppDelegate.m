@@ -12,18 +12,6 @@
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"Notification"];
     }
-    
-    FlutterViewController* controller = (FlutterViewController*)self.window.rootViewController;
-
-    FlutterMethodChannel* channel = [FlutterMethodChannel
-                                            methodChannelWithName:@"dexterx.dev/flutter_local_notifications_example"
-                                            binaryMessenger:controller.binaryMessenger];
-
-    [channel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
-        if([@"getTimeZoneName" isEqualToString:call.method]) {
-            result([[NSTimeZone localTimeZone] name]);
-        }
-    }];
 
     // Override point for customization after application launch.
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
